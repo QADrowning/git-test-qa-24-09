@@ -1,3 +1,12 @@
+// import { strict as assert } from "node:assert";
+// import assert from "node:assert/strict";
+
+// function sum(a, b) {
+//   return a - b;
+// }
+
+// console.log(sum(3, 7));
+
 function kolobok(name){
   switch(name){
     case 'Дедушка':
@@ -16,10 +25,3 @@ function newYear(magicPerson){
 }
 
 newYear('Снегурочка')
-
-describe('kolobok function', () => {
-  it ('should return action', () => {
-    const result = kolobok('Дедушка');
-    expect(result).toBe('Дед меня испек');
-  })
-}) 

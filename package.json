@@ -1,0 +1,41 @@
+{
+  "name": "package",
+  "version": "1.0.0",
+  "description": "Создано в рамках курса OTUS JavaScript QA Engineer",
+  "main": "tale.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/tale.js",
+    "format": "prettier . --check",
+    "format:fix": "prettier . --write",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "test": "jest",
+    "build": "babel src -d lib"
+  },
+  "author": "Olga Kondrateva",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.26.0",
+    "@babel/node": "^7.26.0",
+    "@babel/preset-env": "^7.26.0",
+    "babel-cli": "^6.0.0",
+    "@eslint/js": "^9.14.0",
+    "@types/jest": "^29.5.14",
+    "babel-jest": "^29.7.0",
+    "eslint": "^9.15.0",
+    "eslint-config-prettier": "^9.1.0",
+    "globals": "^15.12.0",
+    "jest": "^29.7.0",
+    "prettier": "^3.3.3"
+  },
+  "dependencies": {
+    "babel-node": "^0.0.1-security",
+    "eslint-plugin-jest": "^28.9.0",
+    "http-server": "^14.1.1"
+  },
+  "keywords": [],
+  "directories": {
+    "test": "tests"
+  }
+}

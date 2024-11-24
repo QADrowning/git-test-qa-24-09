@@ -1,3 +1,7 @@
+//import {describe, expect} from '@jest/globals'
+
+export default
+
 function kolobok(name){
   switch(name){
     case 'Дедушка':
@@ -15,7 +19,7 @@ function newYear(magicPerson){
   return `${magicPerson}!${magicPerson}!${magicPerson}!`
 }
 
-newYear('Снегурочка')
+newYear('Снегурочка');
 
 describe('kolobok function', () => {
   it ('should return action', () => {

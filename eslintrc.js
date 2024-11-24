@@ -1,24 +1,22 @@
-import plugin from "eslint-plugin-jest";
 
 export default {
   env:{
     es2021: true,
     node: true,
-    "jest/globals": true,
+    jest: true,
   },
   plugins:['jest'],
   extends: ['standart','prettier','plugin:jest/recommended'],
+  
   overrides: [
     {
-      env: {
-        node: true,
-        "jest/globals": true,
+      "files": ["*.test.js"],
+      "env": {
+        "jest": true
       },
-      files:['.eslintrc.(js,cjs)'],
-      parserOptions: {
-        sourseType: 'scripts',
-      },
-    },
+      "plugins": ["jest"],
+      "extends": ["plugin:jest/recommended"]
+    }    
   ],
   parserOptions: {
     ecmaVersion: 'latest',

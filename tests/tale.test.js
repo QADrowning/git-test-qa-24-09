@@ -1,11 +1,29 @@
-// import * as kolobok from './node_modules/tale.js';
 import kolobok from '../src/tale.js';
-// const kolobok = require('../src/tale.js');
-//  import { describe}  from './node_modules/@types/jest/index.d.ts'
 
 describe('kolobok function', () => {
-  it ('should return action', () => {
-    const result = kolobok('Дедушка');
-    expect(result).toBe('Дед меня испек');
+  const data = [
+    {
+      name: 'Дедушка',
+      expected: 'Дед меня испек'
+    },
+    {
+      name: 'Заяц',
+      expected: 'Обрел друга'
+    },
+    {
+      name: 'Лиса',
+      expected: 'Меня съели'
+    }
+  ]
+
+  test.each(data)('should return valid action', 
+  ({name,expected}) => {
+    expect(kolobok(name)).toBe(expected)
+  })
+
+  it('should return error', () => {
+    expect(() => {
+      kolobok('Кощей')
+    }).toThrow('Это из другой сказки!')
   })
 }) 

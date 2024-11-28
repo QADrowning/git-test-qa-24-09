@@ -2,7 +2,6 @@
   "name": "package",
   "version": "1.0.0",
   "description": "Создано в рамках курса OTUS JavaScript QA Engineer",
-  "type": "module",
   "scripts": {
     "start": "node src/tale.js",
     "format": "prettier . --check",

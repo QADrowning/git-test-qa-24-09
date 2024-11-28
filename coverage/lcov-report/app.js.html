@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">75% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>30/40</span>
+                <span class='fraction'>40/40</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">90% </span>
+                <span class="quiet">Branches</span>
+                <span class='fraction'>9/10</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
-                <span class="quiet">Branches</span>
-                <span class='fraction'>0/0</span>
-            </div>
-        
-            
-            <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/3</span>
+                <span class='fraction'>3/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">75% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>30/40</span>
+                <span class='fraction'>40/40</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line medium'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -132,21 +132,21 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/**
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span></td><td class="text"><pre class="prettyprint lang-js">/**
  * Проверка имени пользователя
  * @param {string} name
  * @returns {boolean}
  */
-export const nameIsValid = <span class="fstat-no" title="function not covered" >name =&gt; typeof name === 'string' &amp;&amp; name.length &gt;= 2 &amp;&amp; /^[a-z]+$/.test(name)</span>
+export const nameIsValid = name =&gt; typeof name === 'string' &amp;&amp; name.length &gt;= 2 &amp;&amp; /^[a-z]+$/.test(name)
 &nbsp;
 /**
  * Удаление пробелов из строки
@@ -154,7 +154,7 @@ export const nameIsValid = <span class="fstat-no" title="function not covered" >
  * @param {string} text
  * @returns {string}
  */
-export const fullTrim = <span class="fstat-no" title="function not covered" >text =&gt; (text ?? '').replace(/\s+/g, '')</span>
+export const fullTrim = text =&gt; (text<span class="branch-0 cbranch-no" title="branch not covered" > ?? '')</span>.replace(/\s+/g, '')
 &nbsp;
 /**
  * Подсчёт суммы заказа
@@ -170,24 +170,24 @@ export const fullTrim = <span class="fstat-no" title="function not covered" >tex
  * @example getTotal([{ price: 10, quantity: 10 }], 10) // 90
  * @example getTotal([{ price: 10, quantity: 10 }], 100) // 0
  */
-export const getTotal = <span class="fstat-no" title="function not covered" >(items = [], discount = 0) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >  if (typeof discount !== 'number') {</span>
-<span class="cstat-no" title="statement not covered" >    throw new Error('Скидка должна быть числом')</span>
-<span class="cstat-no" title="statement not covered" >  }</span>
-<span class="cstat-no" title="statement not covered" >  if (discount &lt; 0 || discount &gt;= 100) {</span>
-<span class="cstat-no" title="statement not covered" >    throw new Error('Процент скидки должен быть от 0 до 99')</span>
-<span class="cstat-no" title="statement not covered" >  }</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >  const total = items.reduce((acc, { price, quantity }) =&gt; acc + price * quantity, 0)</span>
-<span class="cstat-no" title="statement not covered" >  return total * (1 - discount / 100)</span>
-<span class="cstat-no" title="statement not covered" >}</span></pre></td></tr></table></pre>
+export const getTotal = (items = [], discount = 0) =&gt; {
+  if (typeof discount !== 'number') {
+    throw new Error('Скидка должна быть числом')
+  }
+  if (discount &lt; 0 || discount &gt;= 100) {
+    throw new Error('Процент скидки должен быть от 0 до 99')
+  }
+&nbsp;
+  const total = items.reduce((acc, { price, quantity }) =&gt; acc + price * quantity, 0)
+  return total * (1 - discount / 100)
+}</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2024-11-24T16:41:33.679Z
+                at 2024-11-28T10:43:17.511Z
             </div>
         <script src="prettify.js"></script>
         <script>

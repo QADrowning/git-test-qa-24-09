@@ -1,8 +1,5 @@
-//import {describe, expect} from '@jest/globals'
 
-export default
-
-function kolobok(name){
+export function kolobok(name){
   switch(name){
     case 'Дедушка':
       return ("Дед меня испек")

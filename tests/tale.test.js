@@ -1,4 +1,4 @@
-import kolobok from '../src/tale.js';
+import { kolobok } from '../src/tale.js';
 
 describe('kolobok function', () => {
   const data = [

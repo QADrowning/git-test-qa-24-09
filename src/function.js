@@ -7,20 +7,20 @@
 
 // console.log(sum(3, 7));
 
-function kolobok(name){
-  switch(name){
+function kolobok(name) {
+  switch (name) {
     case 'Дедушка':
-      return ("Дед меня испек");
+      return 'Дед меня испек'
     case 'Заяц':
-      return ("Обрел друга");
+      return 'Обрел друга'
     case 'Лиса':
-      return("Меня съели");
-  }  
+      return 'Меня съели'
+  }
 }
 
-kolobok('Дедушка');
+kolobok('Дедушка')
 
-function newYear(magicPerson){
+function newYear(magicPerson) {
   return `${magicPerson}!${magicPerson}!${magicPerson}!`
 }
 

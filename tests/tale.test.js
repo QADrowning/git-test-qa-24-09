@@ -1,23 +1,22 @@
-import { kolobok } from '../src/tale.js';
+import { kolobok } from '../src/tale.js'
 
 describe('kolobok function', () => {
   const data = [
     {
       name: 'Дедушка',
-      expected: 'Дед меня испек'
+      expected: 'Дед меня испек',
     },
     {
       name: 'Заяц',
-      expected: 'Обрел друга'
+      expected: 'Обрел друга',
     },
     {
       name: 'Лиса',
-      expected: 'Меня съели'
-    }
+      expected: 'Меня съели',
+    },
   ]
 
-  test.each(data)('should return valid action', 
-  ({name,expected}) => {
+  test.each(data)('should return valid action', ({ name, expected }) => {
     expect(kolobok(name)).toBe(expected)
   })
 
@@ -26,4 +25,4 @@ describe('kolobok function', () => {
       kolobok('Кощей')
     }).toThrow('Это из другой сказки!')
   })
-}) 
+})

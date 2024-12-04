@@ -1,9 +1,32 @@
 /**
+ * Проверка успеваемости
+ * @param {Object} scores
+ * @returns {number} 
+ */
+export function getScore (scores) {
+  let sum = 0
+  for (let key in scores) {
+    sum += scores[key]
+  } 
+  return sum
+}
+
+const scores = {
+  Peter: 19,
+  Olga: 31,
+  Boris: 50,
+}
+
+console.log(getScore(scores))
+
+
+/**
  * Проверка имени пользователя
  * @param {string} name
  * @returns {boolean}
  */
-export const nameIsValid = name => typeof name === 'string' && name.length >= 2 && /^[a-z]+$/.test(name)
+export const nameIsValid = name =>
+  typeof name === 'string' && name.length >= 2 && /^[a-z]+$/.test(name)
 
 /**
  * Удаление пробелов из строки
@@ -35,6 +58,9 @@ export const getTotal = (items = [], discount = 0) => {
     throw new Error('Процент скидки должен быть от 0 до 99')
   }
 
-  const total = items.reduce((acc, { price, quantity }) => acc + price * quantity, 0)
+  const total = items.reduce(
+    (acc, { price, quantity }) => acc + price * quantity,
+    0,
+  )
   return total * (1 - discount / 100)
 }

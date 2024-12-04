@@ -1,21 +1,20 @@
-
-export function kolobok(name){
-  switch(name){
+export function kolobok(name) {
+  switch (name) {
     case 'Дедушка':
-      return ("Дед меня испек")
+      return 'Дед меня испек'
     case 'Заяц':
-      return ("Обрел друга")
+      return 'Обрел друга'
     case 'Лиса':
-      return("Меня съели")
-    default: 
+      return 'Меня съели'
+    default:
       throw new Error('Это из другой сказки!')
-  }  
+  }
 }
 
-kolobok('Дедушка');
+kolobok('Дедушка')
 
-function newYear(magicPerson){
+function newYear(magicPerson) {
   return `${magicPerson}!${magicPerson}!${magicPerson}!`
 }
 
-newYear('Снегурочка');
+newYear('Снегурочка')

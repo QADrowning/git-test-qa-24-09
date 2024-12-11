@@ -1,13 +1,13 @@
 /**
  * Проверка успеваемости
  * @param {Object} scores
- * @returns {number} 
+ * @returns {number}
  */
-export function getScore (scores) {
+export function getScore(scores) {
   let sum = 0
   for (let key in scores) {
     sum += scores[key]
-  } 
+  }
   return sum
 }
 
@@ -18,7 +18,6 @@ const scores = {
 }
 
 console.log(getScore(scores))
-
 
 /**
  * Проверка имени пользователя

@@ -7,13 +7,15 @@
 const config = {
   testEnvironment: 'allure-jest/node',
   testEnvironmentOptions: {
-    resultsDir: 'reports/allure-results'
+    resultsDir: 'reports/allure-results',
   },
   reporters: [
     'default',
-    ['github-actions', {silent: false}],
+    ['github-actions', { silent: false }],
     'summary',
-    ['jest-html-reporters', {
+    [
+      'jest-html-reporters',
+      {
         publicPath: './reports/html-report',
         filename: 'index.html',
         openReport: !process.env.CI,

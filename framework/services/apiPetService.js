@@ -49,7 +49,7 @@ export const petGetInfo = async ({ id }) => {
 
   return {
     headers: response.headers,
-    status: response.status,    
+    status: response.status,
     data: response.data,
   }
 }
@@ -59,7 +59,7 @@ export const petDelete = async ({ id }) => {
 
   return {
     headers: response.headers,
-    status: response.status,    
+    status: response.status,
     data: response.data,
   }
 }

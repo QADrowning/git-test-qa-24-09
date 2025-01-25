@@ -5,7 +5,7 @@ export function LoginPage({ page }: { page: Page }) {
   const selectors = {
     userName: '#username',
     password: '#password',
-    loginButton: 'button[type=button]',
+    loginButton: '//button[text()="Login"]',
   }
 
   const visit = async () => {
@@ -21,7 +21,7 @@ export function LoginPage({ page }: { page: Page }) {
   }
 
   const submit = async () => {
-    await page.locator(selectors.loginButton).nth(2).click()
+    await page.locator(selectors.loginButton).click()
   }
 
   const login = async (userName, password) => {

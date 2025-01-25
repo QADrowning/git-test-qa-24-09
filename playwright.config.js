@@ -1,5 +1,4 @@
-
-import { defineConfig } from '@playwright/test';
+import { defineConfig } from '@playwright/test'
 
 export default defineConfig({
   timeout: 30000,
@@ -18,6 +17,9 @@ export default defineConfig({
     {
       name: 'Chromium',
       use: { browserName: 'chromium' },
+      launchOptions: {
+        slowMo: parseInt(process.env.PLAYWRIGHT_SLOW_MO ?? '0'),
+      },
     },
     // {
     //   name: 'Firefox',
@@ -31,4 +33,4 @@ export default defineConfig({
   reporter: [['html', { outputFolder: 'playwright-report', open: 'never' }]],
   // globalSetup: './global-setup.js', // Файл с настройками перед запуском тестов
   // globalTeardown: './global-teardown.js', // Файл с действиями после завершения
-});
+})

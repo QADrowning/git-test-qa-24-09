@@ -10,7 +10,7 @@ export default [
   {
     ignores: ['reports/', 'coverage/*'],
   },
-  { files: ['**/*.spec.js', '**/*.test.js'] },
+  { files: ['**/*.spec.js', '**/*.test.js', '**/*.spec.ts'] },
   { plugins: { jest: pluginJest } },
   {
     languageOptions: {

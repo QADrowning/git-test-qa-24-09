@@ -1,10 +1,10 @@
 import { test, expect } from '@playwright/test'
-import { LoginPageClass } from '../framework/pages'
+import { LoginPage } from '../framework/pages/LoginPage'
 import config from '../framework/config/configLoginPage'
 
 test.describe('Authorization', () => {
   test('Login page visit', async ({ page }) => {
-    const loginPage = new LoginPageClass(page)
+    const loginPage = new LoginPage(page)
     await loginPage.navigate()
 
     const title = await page.locator('.title').textContent()
@@ -12,8 +12,8 @@ test.describe('Authorization', () => {
     await expect(page.locator('.api-url-info')).toBeVisible()
   })
 
-  test('Create account opportunity', async ({ page }) => {
-    const loginPage = new LoginPageClass(page)
+  test('Create account opportunity exist', async ({ page }) => {
+    const loginPage = new LoginPage(page)
     await loginPage.navigate()
 
     const title = await page.locator('[href^="/register"]').textContent()
@@ -21,7 +21,7 @@ test.describe('Authorization', () => {
   })
 
   test('Forgot your password link exist', async ({ page }) => {
-    const loginPage = new LoginPageClass(page)
+    const loginPage = new LoginPage(page)
     await loginPage.navigate()
 
     const title = await page
@@ -31,7 +31,7 @@ test.describe('Authorization', () => {
   })
 
   test('Eye icon and Show the password message exist', async ({ page }) => {
-    const loginPage = new LoginPageClass(page)
+    const loginPage = new LoginPage(page)
     await loginPage.navigate()
 
     await expect(page.locator('[data-icon="eye"]')).toBeVisible()
@@ -39,8 +39,8 @@ test.describe('Authorization', () => {
     await expect(page.locator('[aria-label="Show the password"]')).toBeVisible()
   })
 
-  test('Show password', async ({ page }) => {
-    const loginPage = new LoginPageClass(page)
+  test('User can can see the entered password', async ({ page }) => {
+    const loginPage = new LoginPage(page)
     await loginPage.navigate()
     await loginPage.fillFields(config.userName, config.password)
 
@@ -49,7 +49,7 @@ test.describe('Authorization', () => {
   })
 
   test('Hide the password message exist', async ({ page }) => {
-    const loginPage = new LoginPageClass(page)
+    const loginPage = new LoginPage(page)
     await loginPage.navigate()
     await loginPage.fillFields(config.userName, config.password)
 
@@ -59,14 +59,14 @@ test.describe('Authorization', () => {
   })
 
   test('Checkbox exist', async ({ page }) => {
-    const loginPage = new LoginPageClass(page)
+    const loginPage = new LoginPage(page)
     await loginPage.navigate()
 
     await expect(page.locator('[type="checkbox"]')).toBeVisible()
   })
 
-  test('Wrong password', async ({ page }) => {
-    const loginPage = new LoginPageClass(page)
+  test('Unsuccess authorization with wrong password', async ({ page }) => {
+    const loginPage = new LoginPage(page)
     await loginPage.navigate()
     await loginPage.login(config.userName, config.passwordFake)
 
@@ -74,24 +74,26 @@ test.describe('Authorization', () => {
     expect(title).toEqual('Wrong username or password.')
   })
 
-  test('Empty password', async ({ page }) => {
-    const loginPage = new LoginPageClass(page)
+  test('Notification is displayed when password field is empty', async ({
+    page,
+  }) => {
+    const loginPage = new LoginPage(page)
     await loginPage.navigate()
     await loginPage.login(config.userName, '')
 
     await expect(page.getByText('Please provide a password.')).toBeVisible()
   })
 
-  test('Empty username', async ({ page }) => {
-    const loginPage = new LoginPageClass(page)
+  test('Unsuccess authorization with empty username', async ({ page }) => {
+    const loginPage = new LoginPage(page)
     await loginPage.navigate()
     await loginPage.login('', config.password)
 
     await expect(page.getByText('Please provide a username.')).toBeVisible()
   })
 
-  test('successfully authorization', async ({ page }) => {
-    const loginPage = new LoginPageClass(page)
+  test('Successfully authorization', async ({ page }) => {
+    const loginPage = new LoginPage(page)
     await loginPage.navigate()
     await loginPage.login(config.userName, config.password)
 

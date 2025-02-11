@@ -1,41 +1,34 @@
 import type { Page } from 'playwright-core'
 import config from '../config/configLoginPage'
 
-export function LoginPage({ page }: { page: Page }) {
-  const selectors = {
-    userName: '#username',
-    password: '#password',
-    loginButton: '//button[text()="Login"]',
+export class LoginPage {
+  private page: Page
+  private static userName: string = '#username'
+  private static password: string = '#password'
+
+  constructor(page: Page) {
+    this.page = page
   }
 
-  const visit = async () => {
-    await page.goto(`${config.baseURL}/login`)
+  async navigate() {
+    await this.page.goto(`${config.baseURL}/login`)
   }
 
-  const fillUserName = async (userName: string) => {
-    await page.locator(selectors.userName).fill(userName)
+  async navigateAndLogin(userName: string, password: string) {
+    await this.page.goto(`${config.baseURL}/login`)
+    await this.page.locator(LoginPage.userName).fill(userName)
+    await this.page.locator(LoginPage.password).fill(password)
+    await this.page.getByRole('button', { name: /Login/ }).click()
   }
 
-  const fillPassword = async (password: string) => {
-    await page.locator(selectors.password).fill(password)
+  async login(userName: string, password: string) {
+    await this.page.locator(LoginPage.userName).fill(userName)
+    await this.page.locator(LoginPage.password).fill(password)
+    await this.page.getByRole('button', { name: /Login/ }).click()
   }
 
-  const submit = async () => {
-    await page.locator(selectors.loginButton).click()
-  }
-
-  const login = async (userName, password) => {
-    await visit()
-    await fillUserName(userName)
-    await fillPassword(password)
-    await submit()
-  }
-
-  return {
-    visit,
-    fillUserName,
-    fillPassword,
-    submit,
-    login,
+  async fillFields(userName: string, password: string) {
+    await this.page.locator(LoginPage.userName).fill(userName)
+    await this.page.locator(LoginPage.password).fill(password)
   }
 }

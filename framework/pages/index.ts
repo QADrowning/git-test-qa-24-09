@@ -1,2 +1,2 @@
 export * from './LoginPage'
-export * from './LoginPageClass'
+export * from './ProjectPage'

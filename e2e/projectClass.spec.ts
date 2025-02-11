@@ -1,9 +1,10 @@
 import { test, expect } from '@playwright/test'
 import { ProjectPageClass } from '../framework/pages'
-import { loginUser } from '../framework/actions/login'
+import { login } from '../framework/actions/login'
+import config from '../framework/config/configLoginPage'
 
 test.beforeEach(async ({ page }) => {
-  await loginUser(page)
+  await login(page, config.userName, config.password)
 })
 
 test.describe('Project actions', () => {

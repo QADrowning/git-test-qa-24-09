@@ -1,6 +1,6 @@
 import type { Page } from 'playwright-core'
 
-export class ProjectPageClass {
+export class ProjectPage {
   private page: Page
   private static projectButtonMenu: string = '[href="/projects"]'
   private static newProjectButton: string = '[href="/projects/new"]'
@@ -12,14 +12,14 @@ export class ProjectPageClass {
   }
 
   async createProject(title: string) {
-    await this.page.locator(ProjectPageClass.projectButtonMenu).click()
-    await this.page.locator(ProjectPageClass.newProjectButton).click()
-    await this.page.locator(ProjectPageClass.projectTitle).fill(title)
+    await this.page.locator(ProjectPage.projectButtonMenu).click()
+    await this.page.locator(ProjectPage.newProjectButton).click()
+    await this.page.locator(ProjectPage.projectTitle).fill(title)
     await this.page.getByRole('button', { name: /Create/i }).click()
   }
 
   async addTask(taskTitle: string) {
     await this.page.getByPlaceholder('Add a task…').fill(taskTitle)
-    await this.page.locator(ProjectPageClass.addTaskButton).click()
+    await this.page.locator(ProjectPage.addTaskButton).click()
   }
 }

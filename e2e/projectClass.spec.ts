@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test'
-import { ProjectPageClass } from '../framework/pages'
+import { ProjectPage } from '../framework/pages'
 import { login } from '../framework/actions/login'
 import config from '../framework/config/configLoginPage'
 
@@ -9,7 +9,7 @@ test.beforeEach(async ({ page }) => {
 
 test.describe('Project actions', () => {
   test('Create project', async ({ page }) => {
-    const projectPage = new ProjectPageClass(page)
+    const projectPage = new ProjectPage(page)
     await projectPage.createProject('OtusProject')
 
     const title = await page.locator('.project-title').textContent()
@@ -17,7 +17,7 @@ test.describe('Project actions', () => {
   })
 
   test('Add task in project', async ({ page }) => {
-    const projectPage = new ProjectPageClass(page)
+    const projectPage = new ProjectPage(page)
     await projectPage.createProject('OtusProject')
     await projectPage.addTask('OtusTask')
 

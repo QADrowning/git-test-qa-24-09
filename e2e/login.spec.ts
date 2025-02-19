@@ -96,7 +96,7 @@ test.describe('Authorization', () => {
     await expect(page.getByText('Please provide a username.')).toBeVisible()
   })
 
-  test('successfully authorization', async ({ page }) => {
+  test('successfull authorization', async ({ page }) => {
     const loginPage = LoginPage({ page })
     await loginPage.login(config.userName, config.password)
 
